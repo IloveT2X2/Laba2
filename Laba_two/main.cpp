@@ -23,30 +23,77 @@ int main()
 {
 	setlocale(LC_ALL, "Rus");
     int n;
+    int choice = 0;
+    string ln;
 
     cout << "Введите количество записей: ";
     cin >> n;
 
     Sign* signs = new Sign[n];
 
-    for (int i = 0; i < n; ++i) 
+    for (int i = 0; i < n; ++i)
     {
         cout << "Запись " << i + 1 << endl;
         signs[i].input();
     }
 
-    cout << "\nДанные:" << endl;
-    for (int i = 0; i < n; ++i) 
-    {
-        signs[i].output();
-    }
-    
-    bubbleSort(signs, n);
 
-    cout << "\nДанные отсортированы по дате рождения:" << endl;
-    for (int i = 0; i < n; ++i) 
+    for (; choice != 4;)
     {
-        signs[i].output();
+        cout << "Выберите действие:" << endl;
+        cout << "1. Вывести исходные данные на экран" << endl;
+        cout << "2. Упорядочить данные по датам дней рождения" << endl;
+        cout << "3. Вывести на экран информацию о человеке" << endl;
+        cout << "4. Выход из программы" << endl;
+
+        cin >> choice;
+
+        switch (choice)
+        {
+        case 1:
+            cout << "Исходные данные:" << endl;
+            for (int i = 0; i < n; ++i)
+            {
+                signs[i].output();
+            }
+            break;
+
+        case 2:
+            bubbleSort(signs, n);
+
+            cout << "Данные, отсортированые по дате рождения: " << endl;
+            for (int i = 0; i < n; ++i)
+            {
+                signs[i].output();
+            }
+            break;
+
+        case 3:
+            cout << "Введите фамилию человека" << endl;
+            cin >> ln;
+
+            for (int i = 0; i <= n; i++)
+            {
+                if (signs[i].getLastName() == ln)
+                {
+                    signs[i].output();
+                    break;
+                }
+                if (i == n)
+                {
+                    cout << "Человека с такой фамилией нет\a" << endl;
+                    break;
+                }
+            }
+            break;
+
+        case 4:
+            break;
+
+        default:
+            cerr << "Некорректный выбор!\a" << endl;
+            break;
+        }
     }
 
     delete[] signs;

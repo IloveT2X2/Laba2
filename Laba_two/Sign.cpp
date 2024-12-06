@@ -2,6 +2,8 @@
 
 Sign::Sign()
 {
+    cout << "Вызван конструктор без параметров объекта класса Sign" << endl;
+
 	string firstNam = "";
 	string lastName = "";
 	string zodiacSign = "";
@@ -10,6 +12,8 @@ Sign::Sign()
 
 Sign::Sign(const Sign& sg)
 {
+    cout << "Вызван конструктор копирования объекта класса Sign" << endl;
+
     firstName = sg.firstName;
     lastName = sg.lastName;
     zodiacSign = sg.zodiacSign;
@@ -21,6 +25,7 @@ Sign::Sign(const Sign& sg)
 
 Sign::~Sign()
 {
+    cout << "Вызван деструктор объекта класса Sign" << endl;
 }
 
 void Sign::input()
