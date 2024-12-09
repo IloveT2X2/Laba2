@@ -141,11 +141,9 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Sign.cpp" />
-    <ClCompile Include="String_streams.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sign.h" />
-    <ClInclude Include="String_streams.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
